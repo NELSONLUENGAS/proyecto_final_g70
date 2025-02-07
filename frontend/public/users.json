@@ -1,0 +1,14 @@
+[
+	{
+		"email": "tester@test.com",
+		"password": "12345",
+		"roles": ["customer"],
+		"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IlRlc3RlciIsImVtYWlsIjoidGVzdGVyQHRlc3QuY29tIiwiaWF0IjoxNTE2MjM5MDIyfQ.2xX3hLQ8QOwpkoZBWm2ri0H90T6PGPgxgQUTpZG_idg"
+	},
+	{
+		"email": "admin@test.com",
+		"password": "12345",
+		"roles": ["customer", "admin"],
+		"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkFkbWluIiwiZW1haWwiOiJhZG1pbkB0ZXN0LmNvbSIsImlhdCI6MTUxNjIzOTAyMn0.YdGMMEmKFTFWSwdLy6c3rByfqKCjurl09_s01g64ihU"
+	}
+]
