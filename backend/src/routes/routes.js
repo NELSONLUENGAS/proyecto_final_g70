@@ -30,6 +30,13 @@ const {
 const {
 	handleCreateCheckoutSession,
 } = require('../controllers/gateways.controller');
+const { uploader } = require('../middlewares/uploadModdleware');
+const {
+	handleUploadSingle,
+	handleUploadMultiple,
+	handleGetPublicFile,
+	handleGetPrivateFile,
+} = require('../controllers/upload.controller');
 
 const router = Router();
 
@@ -68,5 +75,11 @@ router.get('/gateways/success', (req, res) => {
 router.get('/gateways/cancelled', (req, res) => {
 	res.send('<h1>Payment cancelled</h1>');
 });
+
+router.post('/upload', uploader.single('file'), handleUploadSingle);
+router.post('/upload/multiple', uploader.array('files'), handleUploadMultiple);
+
+router.get('/files/public/:filename', handleGetPublicFile);
+router.get('/files/private/:filename', handleGetPrivateFile);
 
 module.exports = router;

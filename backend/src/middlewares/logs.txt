@@ -958,3 +958,234 @@
             Request Body: {}
 
         
+            2025-02-13T22:59:06.820Z | IP: ::ffff:127.0.0.1 | POST /api/v2/upload
+            Status: 500 | Duration: 38ms
+            User Agent: Unknown
+            Query String: {}
+            Request Body: {}
+
+        
+            2025-02-13T23:00:28.625Z | IP: ::1 | POST /api/v2/upload
+            Status: 200 | Duration: 21ms
+            User Agent: Unknown
+            Query String: {}
+            Request Body: {}
+
+        
+            2025-02-13T23:01:27.437Z | IP: ::1 | GET /api/v2/files/public/1739487628611-AC%20fondo%20oscuro.png
+            Status: 404 | Duration: 14ms
+            User Agent: Unknown
+            Query String: {}
+            Request Body: {}
+
+        
+            2025-02-13T23:02:59.386Z | IP: ::1 | GET /api/v2/files/public/
+            Status: 404 | Duration: 9ms
+            User Agent: Unknown
+            Query String: {}
+            Request Body: {}
+
+        
+            2025-02-13T23:03:23.950Z | IP: ::1 | GET /api/v2/files/public/52523523535
+            Status: 404 | Duration: 6ms
+            User Agent: Unknown
+            Query String: {}
+            Request Body: {}
+
+        
+            2025-02-13T23:05:28.978Z | IP: ::1 | GET /api/v2/files/public/1739487628611-AC%20fondo%20oscuro.png
+            Status: 500 | Duration: 23ms
+            User Agent: Unknown
+            Query String: {}
+            Request Body: {}
+
+        
+            2025-02-13T23:06:02.529Z | IP: ::1 | GET /api/v2/files/public/1739487628611-AC%20fondo%20oscuro.png
+            Status: 200 | Duration: 24ms
+            User Agent: Unknown
+            Query String: {}
+            Request Body: {}
+
+        
+            2025-02-13T23:08:11.620Z | IP: ::1 | GET /api/v2/upload?type=private
+            Status: 404 | Duration: 6ms
+            User Agent: Unknown
+            Query String: {"type":"private"}
+            Request Body: {}
+
+        
+            2025-02-13T23:08:19.795Z | IP: ::1 | POST /api/v2/upload?type=private
+            Status: 200 | Duration: 23ms
+            User Agent: Unknown
+            Query String: {"type":"private"}
+            Request Body: {}
+
+        
+            2025-02-13T23:08:36.217Z | IP: ::1 | GET /api/v2/files/private/1739488099779-AC%20fondo%20oscuro.png
+            Status: 500 | Duration: 11ms
+            User Agent: Unknown
+            Query String: {}
+            Request Body: {}
+
+        
+            2025-02-13T23:09:11.779Z | IP: ::1 | GET /api/v2/files/private/1739488099779-AC%20fondo%20oscuro.png
+            Status: 500 | Duration: 9ms
+            User Agent: Unknown
+            Query String: {}
+            Request Body: {}
+
+        
+            2025-02-13T23:10:45.638Z | IP: ::1 | POST /api/v2/auth/register
+            Status: 500 | Duration: 418ms
+            User Agent: Unknown
+            Query String: {}
+            Request Body: {"username":"Pepa","eamil":"Pepa@gmail.com","password":"123456"}
+
+        
+            2025-02-13T23:11:05.620Z | IP: ::1 | POST /api/v2/auth/register
+            Status: 201 | Duration: 292ms
+            User Agent: Unknown
+            Query String: {}
+            Request Body: {"username":"Pepa","email":"Pepa@gmail.com","password":"123456"}
+
+        
+            2025-02-13T23:11:21.629Z | IP: ::1 | POST /api/v2/auth/login
+            Status: 200 | Duration: 223ms
+            User Agent: Unknown
+            Query String: {}
+            Request Body: {"username":"Pepa","email":"Pepa@gmail.com","password":"123456"}
+
+        
+            2025-02-13T23:11:45.962Z | IP: ::1 | POST /api/v2/files/private/1739488099779-AC%20fondo%20oscuro.png
+            Status: 404 | Duration: 2ms
+            User Agent: Unknown
+            Query String: {}
+            Request Body: {"username":"Pepa","email":"Pepa@gmail.com","password":"123456"}
+
+        
+            2025-02-13T23:12:32.141Z | IP: ::1 | GET /api/v2/files/private/1739488099779-AC%20fondo%20oscuro.png
+            Status: 500 | Duration: 9ms
+            User Agent: Unknown
+            Query String: {}
+            Request Body: {"username":"Pepa","email":"Pepa@gmail.com","password":"123456"}
+
+        
+            2025-02-13T23:13:08.414Z | IP: ::1 | GET /api/v2/files/private/1739488099779-AC%20fondo%20oscuro.png
+            Status: 200 | Duration: 32ms
+            User Agent: Unknown
+            Query String: {}
+            Request Body: {"username":"Pepa","email":"Pepa@gmail.com","password":"123456"}
+
+        
+            2025-02-13T23:13:30.323Z | IP: ::1 | GET /api/v2/files/private/1739488099779-AC%20fondo%20oscuro.png
+            Status: 500 | Duration: 22ms
+            User Agent: Unknown
+            Query String: {}
+            Request Body: {"username":"Pepa","email":"Pepa@gmail.com","password":"123456"}
+
+        
+            2025-02-13T23:55:47.786Z | IP: ::1 | POST /api/v2//upload/multiple?type=public
+            Status: 200 | Duration: 79ms
+            User Agent: Unknown
+            Query String: {"type":"public"}
+            Request Body: {}
+
+        
+            2025-02-13T23:56:32.463Z | IP: ::1 | POST /api/v2//upload/multiple?type=public
+            Status: 400 | Duration: 7ms
+            User Agent: Unknown
+            Query String: {"type":"public"}
+            Request Body: {}
+
+        
+            2025-02-13T23:57:00.357Z | IP: ::1 | POST /api/v2//upload/multiple?type=public
+            Status: 200 | Duration: 37ms
+            User Agent: Unknown
+            Query String: {"type":"public"}
+            Request Body: {}
+
+        
+            2025-02-13T23:57:00.425Z | IP: ::1 | GET /api/v2/files/public/1739491020325-uel.png
+            Status: 200 | Duration: 34ms
+            User Agent: Unknown
+            Query String: {}
+            Request Body: {}
+
+        
+            2025-02-13T23:57:00.437Z | IP: ::1 | GET /api/v2/files/public/1739491020324-AC%20fondo%20oscuro.jpeg
+            Status: 200 | Duration: 34ms
+            User Agent: Unknown
+            Query String: {}
+            Request Body: {}
+
+        
+            2025-02-13T23:57:00.497Z | IP: ::1 | GET /api/v2/files/public/1739491020327-DALL%C3%82%C2%B7E%202025-02-04%2010.04.24%20-%20A%20top-down%20architectural%20sketch%20of%20a%202,500%20m%C3%82%C2%B2%20(50m%20x%2050m)%20modern%20homestead,%20featuring%20three%20design%20options___1%C3%AF%C2%B8%C2%8F%C3%A2%C2%83%C2%A3%20__Modern%20House%20with%20Central%20Courtyard.webp
+            Status: 200 | Duration: 101ms
+            User Agent: Unknown
+            Query String: {}
+            Request Body: {}
+
+        
+            2025-02-13T23:57:42.884Z | IP: ::1 | POST /api/v2//upload?type=private
+            Status: 200 | Duration: 15ms
+            User Agent: Unknown
+            Query String: {"type":"private"}
+            Request Body: {}
+
+        
+            2025-02-13T23:59:03.113Z | IP: ::1 | POST /api/v2//upload?type=private
+            Status: 200 | Duration: 8ms
+            User Agent: Unknown
+            Query String: {"type":"private"}
+            Request Body: {}
+
+        
+            2025-02-14T00:00:16.758Z | IP: ::1 | POST /api/v2//upload?type=private
+            Status: 200 | Duration: 4ms
+            User Agent: Unknown
+            Query String: {"type":"private"}
+            Request Body: {}
+
+        
+            2025-02-14T00:01:04.223Z | IP: ::1 | GET /api/v2/files/private/1739491216754-nestjs.webp
+            Status: 500 | Duration: 5ms
+            User Agent: Unknown
+            Query String: {}
+            Request Body: {}
+
+        
+            2025-02-14T00:01:05.691Z | IP: ::1 | GET /favicon.ico
+            Status: 404 | Duration: 14ms
+            User Agent: Unknown
+            Query String: {}
+            Request Body: {}
+
+        
+            2025-02-14T00:05:53.022Z | IP: ::1 | GET /api/v2/files/private/1739488099779-AC%20fondo%20oscuro.png
+            Status: 200 | Duration: 9ms
+            User Agent: Unknown
+            Query String: {}
+            Request Body: {"username":"Pepa","email":"Pepa@gmail.com","password":"123456"}
+
+        
+            2025-02-14T00:06:28.977Z | IP: ::1 | POST /api/v2//upload?type=private
+            Status: 200 | Duration: 11ms
+            User Agent: Unknown
+            Query String: {"type":"private"}
+            Request Body: {}
+
+        
+            2025-02-14T00:06:29.042Z | IP: ::1 | GET /api/v2/files/private/1739491588967-DALL%C3%82%C2%B7E%202025-02-04%2010.04.24%20-%20A%20top-down%20architectural%20sketch%20of%20a%202,500%20m%C3%82%C2%B2%20(50m%20x%2050m)%20modern%20homestead,%20featuring%20three%20design%20options___1%C3%AF%C2%B8%C2%8F%C3%A2%C2%83%C2%A3%20__Modern%20House%20with%20Central%20Courtyard.webp
+            Status: 200 | Duration: 27ms
+            User Agent: Unknown
+            Query String: {}
+            Request Body: {}
+
+        
+            2025-02-14T00:06:29.049Z | IP: ::1 | GET /api/v2/files/private/1739491588967-DALL%C3%82%C2%B7E%202025-02-04%2010.04.24%20-%20A%20top-down%20architectural%20sketch%20of%20a%202,500%20m%C3%82%C2%B2%20(50m%20x%2050m)%20modern%20homestead,%20featuring%20three%20design%20options___1%C3%AF%C2%B8%C2%8F%C3%A2%C2%83%C2%A3%20__Modern%20House%20with%20Central%20Courtyard.webp
+            Status: 200 | Duration: 37ms
+            User Agent: Unknown
+            Query String: {}
+            Request Body: {}
+
+        
