@@ -1189,3 +1189,59 @@
             Request Body: {}
 
         
+            2025-02-18T00:05:11.364Z | IP: ::1 | POST /api/v2//upload?type=public
+            Status: 200 | Duration: 38ms
+            User Agent: Unknown
+            Query String: {"type":"public"}
+            Request Body: {}
+
+        
+            2025-02-18T00:05:11.438Z | IP: ::1 | GET /api/v2/files/public/1739837111331-logo.png
+            Status: 200 | Duration: 58ms
+            User Agent: Unknown
+            Query String: {}
+            Request Body: {}
+
+        
+            2025-02-18T00:05:57.903Z | IP: ::1 | POST /api/v2//upload?type=private
+            Status: 200 | Duration: 4ms
+            User Agent: Unknown
+            Query String: {"type":"private"}
+            Request Body: {}
+
+        
+            2025-02-18T00:05:57.984Z | IP: ::1 | GET /api/v2/files/private/1739837157900-logov2.png
+            Status: 200 | Duration: 24ms
+            User Agent: Unknown
+            Query String: {}
+            Request Body: {}
+
+        
+            2025-02-18T00:05:57.998Z | IP: ::1 | GET /api/v2/files/private/1739837157900-logov2.png
+            Status: 200 | Duration: 24ms
+            User Agent: Unknown
+            Query String: {}
+            Request Body: {}
+
+        
+            2025-02-18T00:08:03.529Z | IP: ::1 | GET /api/v2/files/private/1739837157900-logov2.png
+            Status: 500 | Duration: 7ms
+            User Agent: Unknown
+            Query String: {}
+            Request Body: {}
+
+        
+            2025-02-18T00:08:05.266Z | IP: ::1 | GET /favicon.ico
+            Status: 404 | Duration: 9ms
+            User Agent: Unknown
+            Query String: {}
+            Request Body: {}
+
+        
+            2025-02-18T00:08:25.275Z | IP: ::1 | GET /api/v2/files/public/1739837111331-logo.png
+            Status: 304 | Duration: 7ms
+            User Agent: Unknown
+            Query String: {}
+            Request Body: {}
+
+        

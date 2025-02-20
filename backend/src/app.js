@@ -1,3 +1,4 @@
+require('dotenv').config();
 require('../docs/routes/index.routes');
 
 const express = require('express');
@@ -10,11 +11,22 @@ const { logsMiddleware } = require('./middlewares/logsMiddleware');
 const { specs } = require('../docs/swaggerConfig');
 
 const app = express();
+const { CLIENT_URL } = process.env;
 
 // middlewares
 app.use(express.json());
 app.use(morgan('dev'));
-app.use(cors());
+app.use(
+	cors({
+		origin: [CLIENT_URL],
+		methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
+		allowedHeaders: [
+			'Content-Type',
+			'Authorization',
+			'Access-Control-Allow-Origin',
+		],
+	})
+);
 app.use(logsMiddleware);
 
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs));
