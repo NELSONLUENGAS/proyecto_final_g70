@@ -1245,3 +1245,129 @@
             Request Body: {}
 
         
+            2025-02-20T23:02:58.884Z | IP: ::1 | POST /api/v2//upload?type=public
+            Status: 200 | Duration: 92ms
+            User Agent: Unknown
+            Query String: {"type":"public"}
+            Request Body: {}
+
+        
+            2025-02-20T23:22:02.074Z | IP: ::1 | POST /api/v2//upload?type=public
+            Status: 200 | Duration: 21ms
+            User Agent: Unknown
+            Query String: {"type":"public"}
+            Request Body: {}
+
+        
+            2025-02-21T00:00:46.503Z | IP: ::1 | POST /api/v2/auth/register
+            Status: 201 | Duration: 273ms
+            User Agent: Unknown
+            Query String: {}
+            Request Body: {"email":"pepito1@gmail.com","password":"12345"}
+
+        
+            2025-02-21T00:01:06.961Z | IP: ::1 | POST /api/v2/auth/register
+            Status: 201 | Duration: 221ms
+            User Agent: Unknown
+            Query String: {}
+            Request Body: {"email":"pepito1@gmail.com","password":"12345"}
+
+        
+            2025-02-21T00:03:20.440Z | IP: ::1 | POST /api/v2/auth/register
+            Status: 201 | Duration: 301ms
+            User Agent: Unknown
+            Query String: {}
+            Request Body: {"email":"pepito2@gmail.com","password":"123456"}
+
+        
+            2025-02-21T00:05:13.370Z | IP: ::1 | POST /api/v2/auth/login
+            Status: 401 | Duration: 353ms
+            User Agent: Unknown
+            Query String: {}
+            Request Body: {"email":"pepito2@gmail.com","password":"12345"}
+
+        
+            2025-02-21T00:06:26.697Z | IP: ::1 | POST /api/v2/auth/register
+            Status: 201 | Duration: 248ms
+            User Agent: Unknown
+            Query String: {}
+            Request Body: {"email":"pepito3@gmail.com","password":"123456"}
+
+        
+            2025-02-21T00:06:34.232Z | IP: ::1 | POST /api/v2/auth/login
+            Status: 200 | Duration: 173ms
+            User Agent: Unknown
+            Query String: {}
+            Request Body: {"email":"pepito3@gmail.com","password":"123456"}
+
+        
+            2025-02-21T00:08:33.540Z | IP: ::1 | POST /api/v2/auth/login
+            Status: 401 | Duration: 279ms
+            User Agent: Unknown
+            Query String: {}
+            Request Body: {"email":"pepito3@gmail.com","password":"12345"}
+
+        
+            2025-02-21T00:08:43.943Z | IP: ::1 | POST /api/v2/auth/login
+            Status: 200 | Duration: 303ms
+            User Agent: Unknown
+            Query String: {}
+            Request Body: {"email":"pepito3@gmail.com","password":"123456"}
+
+        
+            2025-02-21T00:10:41.756Z | IP: ::1 | POST /api/v2/auth/login
+            Status: 200 | Duration: 292ms
+            User Agent: Unknown
+            Query String: {}
+            Request Body: {"email":"pepito3@gmail.com","password":"123456"}
+
+        
+            2025-02-21T00:12:00.030Z | IP: ::1 | POST /api/v2/auth/login
+            Status: 200 | Duration: 297ms
+            User Agent: Unknown
+            Query String: {}
+            Request Body: {"email":"pepito3@gmail.com","password":"123456"}
+
+        
+            2025-02-21T00:13:58.761Z | IP: ::1 | POST /api/v2/auth/login
+            Status: 200 | Duration: 367ms
+            User Agent: Unknown
+            Query String: {}
+            Request Body: {"email":"pepito3@gmail.com","password":"123456"}
+
+        
+            2025-02-21T00:14:37.636Z | IP: ::1 | POST /api/v2/auth/login
+            Status: 200 | Duration: 391ms
+            User Agent: Unknown
+            Query String: {}
+            Request Body: {"email":"pepito3@gmail.com","password":"123456"}
+
+        
+            2025-02-21T00:15:31.074Z | IP: ::1 | POST /api/v2/auth/login
+            Status: 200 | Duration: 319ms
+            User Agent: Unknown
+            Query String: {}
+            Request Body: {"email":"pepito3@gmail.com","password":"123456"}
+
+        
+            2025-02-21T00:17:07.941Z | IP: ::1 | POST /api/v2/auth/login
+            Status: 200 | Duration: 241ms
+            User Agent: Unknown
+            Query String: {}
+            Request Body: {"email":"pepito3@gmail.com","password":"123456"}
+
+        
+            2025-02-21T00:23:45.206Z | IP: ::1 | POST /api/v2/auth/register
+            Status: 201 | Duration: 203ms
+            User Agent: Unknown
+            Query String: {}
+            Request Body: {"email":"pepito4@gmail.com","password":"12345"}
+
+        
+            2025-02-21T00:23:53.984Z | IP: ::1 | POST /api/v2/auth/login
+            Status: 200 | Duration: 84ms
+            User Agent: Unknown
+            Query String: {}
+            Request Body: {"email":"pepito4@gmail.com","password":"12345"}
+
+        

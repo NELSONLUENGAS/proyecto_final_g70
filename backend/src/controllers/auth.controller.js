@@ -17,7 +17,7 @@ const handleLogin = async (req, res, next) => {
 			const token = signToken(data);
 			res.status(200).send({
 				msg: 'Login exitoso',
-				data: { email, token },
+				data: { email, token, ...user },
 			});
 		} else {
 			return res.status(400).send({

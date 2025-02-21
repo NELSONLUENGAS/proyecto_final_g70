@@ -1,9 +1,53 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
+const { VITE_SERVER_URL } = import.meta.env;
 const RegisterForm = () => {
+	const navigate = useNavigate();
+
+	const [register, setRegister] = useState({
+		email: '',
+		password: '',
+	});
+
+	const handleChange = (event) => {
+		const { name, value } = event.target;
+
+		setRegister({
+			...register,
+			[name]: value,
+		});
+	};
+
+	const handleSubmit = async (event) => {
+		event.preventDefault();
+		const { email, password } = register;
+
+		const userRegsiter = await handleFetchRegister(email, password);
+
+		if (userRegsiter?.user) {
+			navigate('/login');
+		} else {
+			alert(userRegsiter.msg);
+		}
+	};
+
+	const handleFetchRegister = async (email, password) => {
+		const response = await fetch(`${VITE_SERVER_URL}/api/v2/auth/register`, {
+			method: 'POST',
+			headers: {
+				'Content-type': 'application/json',
+			},
+			body: JSON.stringify({ email, password }),
+		});
+
+		const userRegistered = await response.json();
+		return userRegistered;
+	};
+
 	return (
 		<form
-			onSubmit={'handleSumbit'}
+			onSubmit={handleSubmit}
 			className="space-y-4"
 		>
 			<div>
@@ -14,7 +58,7 @@ const RegisterForm = () => {
 					Username
 				</label>
 				<input
-					onChange={'handleOnChange'}
+					onChange={handleChange}
 					type="text"
 					id="username"
 					name="username"
@@ -29,7 +73,7 @@ const RegisterForm = () => {
 					Email
 				</label>
 				<input
-					onChange={'handleOnChange'}
+					onChange={handleChange}
 					type="text"
 					id="email"
 					name="email"
@@ -44,7 +88,7 @@ const RegisterForm = () => {
 					Password
 				</label>
 				<input
-					onChange={'handleOnChange'}
+					onChange={handleChange}
 					type="password"
 					id="password"
 					name="password"

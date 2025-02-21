@@ -10,6 +10,7 @@ const AuthGuard = ({ children, isAllow, redirectTo = '/' }) => {
 		return <CustomLoading />;
 	}
 
+	console.log(isAllow, 'isallow', loading);
 	if (!isAllow) {
 		return (
 			<Navigate

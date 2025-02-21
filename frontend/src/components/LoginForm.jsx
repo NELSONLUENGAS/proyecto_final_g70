@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import useAuth from '../hooks/useAuth';
+const { VITE_SERVER_URL } = import.meta.env;
 
 const LoginForm = () => {
 	const navigate = useNavigate();
@@ -8,8 +9,6 @@ const LoginForm = () => {
 	const [login, setLogin] = useState({
 		email: '',
 		password: '',
-		token: false,
-		roles: [],
 	});
 
 	const handleChange = (event) => {
@@ -27,9 +26,9 @@ const LoginForm = () => {
 
 		const session = await handleFetchLogin(email, password);
 
-		if (session.ok) {
-			handleSession(session);
-			if (session.user.roles.includes('admin')) {
+		if (session.data) {
+			handleSession(session.data);
+			if (session.data.role == 'ADMIN') {
 				navigate('/admin');
 			} else {
 				navigate('/profile');
@@ -40,25 +39,16 @@ const LoginForm = () => {
 	};
 
 	const handleFetchLogin = async (email, password) => {
-		const response = await fetch('users.json');
-		const users = await response.json();
+		const response = await fetch(`${VITE_SERVER_URL}/api/v2/auth/login`, {
+			method: 'POST',
+			headers: {
+				'Content-type': 'application/json',
+			},
+			body: JSON.stringify({ email, password }),
+		});
 
-		const userExist = users.find(
-			(user) => user.email == email && user.password == password
-		);
-
-		if (!userExist) {
-			return {
-				ok: false,
-				msg: 'Usuario no existente',
-			};
-		} else {
-			return {
-				ok: true,
-				msg: 'Usuario encontrado',
-				user: userExist,
-			};
-		}
+		const userRegistered = await response.json();
+		return userRegistered;
 	};
 
 	return (

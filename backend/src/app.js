@@ -12,7 +12,7 @@ const { specs } = require('../docs/swaggerConfig');
 
 const app = express();
 const { CLIENT_URL } = process.env;
-
+console.log(CLIENT_URL);
 // middlewares
 app.use(express.json());
 app.use(morgan('dev'));
@@ -20,11 +20,7 @@ app.use(
 	cors({
 		origin: [CLIENT_URL],
 		methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
-		allowedHeaders: [
-			'Content-Type',
-			'Authorization',
-			'Access-Control-Allow-Origin',
-		],
+		allowedHeaders: ['Content-Type', 'Authorization'],
 	})
 );
 app.use(logsMiddleware);

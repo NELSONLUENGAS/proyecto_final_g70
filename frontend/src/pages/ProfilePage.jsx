@@ -3,10 +3,10 @@ import useAuth from '../hooks/useAuth';
 
 const ProfilePage = () => {
 	const { session, handleLogout } = useAuth();
-	console.log(session);
+
 	return (
 		<div>
-			<h1>Hola {session.user.email}</h1>
+			<h1>Hola {session.email}</h1>
 
 			<button
 				onClick={() => handleLogout()}
