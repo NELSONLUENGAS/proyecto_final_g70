@@ -1,66 +1,57 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import PrivateImage from './PrivateImage';
+import useFetch from '../hooks/useFetch';
+import useAuth from '../hooks/useAuth';
 
 const FileUploader = () => {
 	const [files, setFiles] = useState([]);
-	const [uploading, setUploading] = useState(false);
 	const [filesUrls, setFilesUrls] = useState([]);
-	const [error, setError] = useState([]);
+	const [localError, setLocalError] = useState([]);
 	const [isMultiple, setIsMultiple] = useState(false);
 	const [isPrivate, setIsPrivate] = useState(false);
+
+	const { session } = useAuth();
 
 	const handleFileChange = (event) => {
 		const selectedFiles = Array.from(event.target.files);
 
 		if (!isMultiple && selectedFiles?.length > 1) {
-			setError('Solo se permite subir un archivo');
+			setLocalError('Solo se permite subir un archivo');
 		}
 
 		setFiles(selectedFiles);
-		setError(null);
+		setLocalError(null);
 	};
 
-	const handleUpload = async () => {
-		try {
-			if (!files?.length) {
-				setError('Por favor, selecciona añ menos un archivo');
-			}
+	const formData = new FormData();
+	const endpoint = isMultiple ? 'upload/multiple' : 'upload';
 
-			setUploading(true);
-			setError(null);
-
-			const formData = new FormData();
-
-			files.map((file) => {
-				formData.append(isMultiple ? 'files' : 'file', file);
-			});
-
-			const endpoint = isMultiple ? '/upload/multiple' : '/upload';
-			const response = await fetch(
-				`http://localhost:3000/api/v2/${endpoint}?type=${
-					isPrivate ? 'private' : 'public'
-				}`,
-				{
-					method: 'POST',
-					body: formData,
-				}
-			);
-
-			if (!response.ok) {
-				throw new Error('Error al subir el/los archivos');
-			}
-
-			const data = await response.json();
-			setFilesUrls(isMultiple ? data.urls : [data.url]);
-		} catch (error) {
-			setError(error.message);
-		} finally {
-			setUploading(false);
+	const { data, loading, error, fetchData } = useFetch(
+		`${endpoint}?type=${isPrivate ? 'private' : 'public'}`,
+		{
+			method: 'POST',
+			body: formData,
+			isFile: true,
 		}
-	};
+	);
 
-	const token =
-		'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6IlBlcGFAZ21haWwuY29tIiwiZW1haWxfdmVyaWZpZWQiOmZhbHNlLCJyb2xlIjoiVVNFUiIsImlhdCI6MTczOTQ4ODI4MSwiZXhwIjoxNzQ3MjY0MjgxfQ.YBWDWEF84gNUI4lSfuchOuNnDXiH-J2En-FuS4S2guA';
+	useEffect(() => {
+		if (data && !error) {
+			setFilesUrls(isMultiple ? data.urls : [data.url]);
+		}
+	}, [data, error]);
+
+	const handleUpload = () => {
+		if (!files?.length) {
+			setLocalError('Por favor, selecciona al menos un archivo');
+		}
+		setLocalError(null);
+
+		files.map((file) => {
+			formData.append(isMultiple ? 'files' : 'file', file);
+		});
+		fetchData();
+	};
 
 	return (
 		<>
@@ -93,15 +84,17 @@ const FileUploader = () => {
 
 				<button
 					onClick={handleUpload}
-					disabled={uploading || !files?.length}
+					disabled={loading || !files?.length}
 					className={`py-[10px] px-[20px] ${
-						uploading ? 'bg-[#ccc]' : 'bg-[#007bff]'
+						loading ? 'bg-[#ccc]' : 'bg-[#007bff]'
 					} text-white border-none rounded cursor-pointer`}
 				>
-					{uploading ? 'Subiendo...' : 'Subir archivos'}
+					{loading ? 'Subiendo...' : 'Subir archivos'}
 				</button>
 
-				{error && <p className="text-red-500 mt-[10px]">{error}</p>}
+				{setLocalError && (
+					<p className="text-red-500 mt-[10px]">{setLocalError}</p>
+				)}
 
 				{filesUrls.length > 0 && (
 					<div className="mt-[20px]">
@@ -111,7 +104,7 @@ const FileUploader = () => {
 								url.includes('private') ? (
 									<PrivateImage
 										imageUrl={url}
-										token={token}
+										token={session.data.token}
 									/>
 								) : (
 									<img

@@ -17,12 +17,16 @@ const useEncrypt = () => {
 	};
 
 	const handleDecrypt = (sessionEncrypted) => {
-		const sessionDecrypted = CryptoJS.AES.decrypt(
-			sessionEncrypted,
-			String(VITE_CRYPTOJS_SECRET)
-		).toString(CryptoJS.enc.Utf8);
+		try {
+			const sessionDecrypted = CryptoJS.AES.decrypt(
+				sessionEncrypted,
+				String(VITE_CRYPTOJS_SECRET)
+			).toString(CryptoJS.enc.Utf8);
 
-		setDecrypted(sessionDecrypted);
+			setDecrypted(sessionDecrypted);
+		} catch (error) {
+			console.log(error);
+		}
 	};
 
 	return {

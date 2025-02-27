@@ -1,37 +1,37 @@
-const { getToken, decodeToken } = require("../helpers/jwt")
+const { getToken, decodeToken } = require('../helpers/jwt');
 
 const handleAdmin = async (req, res, next) => {
-    try {
-        const token = getToken(req)
-        const { role } = decodeToken(token)
+	try {
+		const token = getToken(req);
+		const { role } = decodeToken(token);
 
-        if (role === 'ADMIN') {
-            next()
-        } else {
-            throw new Error('AUTH_ERROR')
-        }
-    } catch (error) {
-        next(error)
-    }
-}
+		if (role === 'ADMIN') {
+			next();
+		} else {
+			throw new Error('AUTH_ERROR');
+		}
+	} catch (error) {
+		next(error);
+	}
+};
 
 const handleUser = async (req, res, next) => {
-    try {
-        const token = getToken(req)
-        const { role } = decodeToken(token)
+	try {
+		const token = getToken(req);
 
-        if (role === 'USER' || role === 'ADMIN') {
-            next()
-        } else {
-            throw new Error('AUTH_ERROR')
-        }
+		const { role } = decodeToken(token);
 
-    } catch (error) {
-        next(error)
-    }
-}
+		if (role === 'USER' || role === 'ADMIN') {
+			next();
+		} else {
+			throw new Error('AUTH_ERROR');
+		}
+	} catch (error) {
+		next(error);
+	}
+};
 
 module.exports = {
-    handleAdmin,
-    handleUser
-}
+	handleAdmin,
+	handleUser,
+};

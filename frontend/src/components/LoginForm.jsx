@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import useAuth from '../hooks/useAuth';
+import useFetch from '../hooks/useFetch';
 const { VITE_SERVER_URL } = import.meta.env;
 
 const LoginForm = () => {
@@ -20,36 +21,26 @@ const LoginForm = () => {
 		});
 	};
 
-	const handleSubmit = async (event) => {
+	const { data, loading, error, fetchData } = useFetch('auth/login', {
+		method: 'POST',
+		body: JSON.stringify(login),
+	});
+
+	const handleSubmit = (event) => {
 		event.preventDefault();
-		const { email, password } = login;
+		fetchData();
+	};
 
-		const session = await handleFetchLogin(email, password);
-
-		if (session.data) {
-			handleSession(session.data);
-			if (session.data.role == 'ADMIN') {
+	useEffect(() => {
+		if (data && !error) {
+			handleSession(data);
+			if (data.data.role === 'ADMIN') {
 				navigate('/admin');
 			} else {
 				navigate('/profile');
 			}
-		} else {
-			alert(session.msg);
 		}
-	};
-
-	const handleFetchLogin = async (email, password) => {
-		const response = await fetch(`${VITE_SERVER_URL}/api/v2/auth/login`, {
-			method: 'POST',
-			headers: {
-				'Content-type': 'application/json',
-			},
-			body: JSON.stringify({ email, password }),
-		});
-
-		const userRegistered = await response.json();
-		return userRegistered;
-	};
+	}, [data, error]);
 
 	return (
 		<form

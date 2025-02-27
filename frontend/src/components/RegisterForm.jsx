@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import useFetch from '../hooks/useFetch';
 
-const { VITE_SERVER_URL } = import.meta.env;
 const RegisterForm = () => {
 	const navigate = useNavigate();
 
@@ -19,31 +19,21 @@ const RegisterForm = () => {
 		});
 	};
 
-	const handleSubmit = async (event) => {
+	const { data, loading, error, fetchData } = useFetch('auth/register', {
+		method: 'POST',
+		body: JSON.stringify(register),
+	});
+
+	const handleSubmit = (event) => {
 		event.preventDefault();
-		const { email, password } = register;
+		fetchData();
+	};
 
-		const userRegsiter = await handleFetchRegister(email, password);
-
-		if (userRegsiter?.user) {
+	useEffect(() => {
+		if (data && !error) {
 			navigate('/login');
-		} else {
-			alert(userRegsiter.msg);
 		}
-	};
-
-	const handleFetchRegister = async (email, password) => {
-		const response = await fetch(`${VITE_SERVER_URL}/api/v2/auth/register`, {
-			method: 'POST',
-			headers: {
-				'Content-type': 'application/json',
-			},
-			body: JSON.stringify({ email, password }),
-		});
-
-		const userRegistered = await response.json();
-		return userRegistered;
-	};
+	}, [data, error]);
 
 	return (
 		<form

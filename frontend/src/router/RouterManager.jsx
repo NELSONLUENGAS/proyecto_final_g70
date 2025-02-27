@@ -12,7 +12,7 @@ import AdminLayout from '../layouts/AdminLayout';
 
 const RouterManager = () => {
 	const { session } = useAuth();
-	console.log(session);
+
 	return (
 		<Router>
 			<Routes>
@@ -41,7 +41,7 @@ const RouterManager = () => {
 						path="/profile"
 						element={
 							<AuthGuard
-								isAllow={session?.token}
+								isAllow={session?.data?.token}
 								redirectTo="/login"
 							/>
 						}
@@ -57,7 +57,7 @@ const RouterManager = () => {
 					path="/admin"
 					element={
 						<AuthGuard
-							isAllow={session?.role === 'ADMIN'}
+							isAllow={session?.data?.role === 'ADMIN'}
 							redirectTo="/profile"
 						>
 							<AdminLayout />

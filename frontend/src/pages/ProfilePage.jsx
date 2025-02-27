@@ -1,12 +1,21 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import useAuth from '../hooks/useAuth';
+import useFetch from '../hooks/useFetch';
 
 const ProfilePage = () => {
 	const { session, handleLogout } = useAuth();
 
+	const { data, loading, error, fetchData } = useFetch('inmuebles', {
+		method: 'GET',
+		token: true,
+	});
+	useEffect(() => {
+		fetchData();
+	}, []);
+
 	return (
 		<div>
-			<h1>Hola {session.email}</h1>
+			<h1>Hola {session.data.email}</h1>
 
 			<button
 				onClick={() => handleLogout()}

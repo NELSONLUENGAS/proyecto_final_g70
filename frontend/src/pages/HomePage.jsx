@@ -5,8 +5,6 @@ import FileUploader from '../components/FileUploader';
 const HomePage = () => {
 	const { products, loading } = useProduct();
 
-	console.log(products, 'Products home');
-
 	return (
 		<div>
 			<FileUploader />
